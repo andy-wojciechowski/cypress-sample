@@ -1,1 +1,46 @@
-<p>sample works!</p>
+<div id="submissionMessage">{{submissionMessage}}</div>
+<form (ngSubmit)="onSubmit()" name="sampleForm" [formGroup]="sampleForm" #formDirective="ngForm">
+  <mat-form-field id="selectMatFormField">
+    <mat-select id="matSelectSample" (selectionChange)="onSelectionChange()" [formControl]="selectControl">
+      <mat-option *ngFor="let option of selectOptions" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+              
+  <br/>
+              
+  <div *ngIf="valueSelected">
+    <mat-checkbox id="matCheckbox1" [(ngModel)]="checkbox1Selected">Checkbox 1</mat-checkbox>
+    <br/>
+    <div *ngIf="checkbox1Selected">
+      <mat-form-field id="checkbox1InputMatFormField">
+        <input matInput placeholder="Checkbox 1 Input">
+      </mat-form-field>
+    </div>
+    <br/>
+    <mat-checkbox id="matCheckbox2" [(ngModel)]="checkbox2Selected">Checkbox 2</mat-checkbox>
+    <br/>
+    <div *ngIf="checkbox2Selected">
+      <mat-form-field id="checkbox2InputMatFormField">
+        <input matInput placeholder="Checkbox 2 Input">
+      </mat-form-field>
+    </div>
+    <br/>
+    <mat-checkbox id="matCheckbox3" [(ngModel)]="checkbox3Selected">Checkbox 3</mat-checkbox>
+    <br/>
+    <div *ngIf="checkbox3Selected">
+      <mat-form-field id="checkbox3InputMatFormField">
+        <input matInput placeholder="Checkbox 3 Input">
+      </mat-form-field>
+    </div>
+              
+    <mat-form-field id="requiredInputMatFormField">
+      <input matInput placeholder="Required Input" [formControl]="inputControl">
+    </mat-form-field>
+  </div>
+              
+  <br/>
+              
+  <button type="submit" ng-disabled="!sampleForm.valid">Submit</button>
+</form>
