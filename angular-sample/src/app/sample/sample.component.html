@@ -36,11 +36,11 @@
     </div>
               
     <mat-form-field id="requiredInputMatFormField">
-      <input matInput placeholder="Required Input" [formControl]="inputControl">
+      <input id="requiredInput" matInput placeholder="Required Input" [formControl]="inputControl">
     </mat-form-field>
   </div>
               
   <br/>
               
-  <button type="submit" ng-disabled="!sampleForm.valid">Submit</button>
+  <button id="submitButton" type="submit" ng-disabled="!sampleForm.valid">Submit</button>
 </form>
